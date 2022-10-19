@@ -19,6 +19,12 @@ class TestController extends Controller
             "test" => $test
         ]);
     }
+    public function display(){
+        $firstName= " boutaina";
+        $age=24 ;
+        return view('display',compact('firstName','age'));
+        
+      }
 
     /**
      * Show the form for creating a new resource.
@@ -37,7 +43,9 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+
+
     }
 
     /**

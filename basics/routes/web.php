@@ -45,4 +45,9 @@ Route::get('/search/{botaina}', function ($botaina) {
 
 
 Route::get('/user/{id}', [UserController::class, 'show']);
+//route of a single action
 Route::get('/userProfile', ProvisionServer::class);
+Route::resource('test', TestController::class);
+
+Route::get('/display', [TestController::class, 'display']);
+Route::get('/store', [UserController::class, 'store']);

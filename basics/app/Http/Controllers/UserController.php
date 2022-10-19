@@ -13,4 +13,13 @@ class UserController extends Controller
             'user' => User::findOrFail($id)
         ]);
     }
+    public function store(Request $request)
+    {
+        $input = $request->input('name');
+        // $uri = $request->path();
+        //  $host =$request->host();
+        // dd($host);
+        return view("store",compact($input));
+    }
+
 }

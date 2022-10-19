@@ -19,6 +19,8 @@
            
             <tr>
                 <td>{{$value->name}}</td>
+                <td>{{$value->name}}</td>
+              
             </tr>
             @empty
                 
