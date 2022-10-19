@@ -18,8 +18,8 @@ class UserController extends Controller
         $input = $request->input('name');
         // $uri = $request->path();
         //  $host =$request->host();
-        // dd($host);
-        return view("store",compact($input));
+        dd($input);
+        return view("store");
     }
 
 }
