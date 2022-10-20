@@ -7,49 +7,53 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   //1-Get all data from Database 
     public function index()
     {
-    //Get  from Database 
+    
         $user = DB::table('users')->get();
  
         return view('index',compact('user'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+
+
+
+    //2-Retrieving A Single Row / Column From A Table
+    public function singleRow()
     {
-        //
+        $user = DB::table('users')->where('name','botaina')->first();
+        // $email = DB::table('users')->where('name', 'lharrak')->value('email');
+        return $user->email;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+   
+
+    //3-Retrieving A List Of Column Values
+    public function list()
     {
-        //
+         
+        $names = DB::table('users')->pluck('name');
+        foreach ($names as $name) {
+            echo $name ;
+        }
+
+
+        // 4-Aggregates(count, max, min, avg,sum)
+            // $user = DB::table('users')->count();
+            // return $user;
+        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    //5-Select Statements
+    public function select()
     {
-        //
+        $users = DB::table('users')
+            ->select('name', 'email as user_email')
+            ->get();
+            return $users;
     }
 
     /**

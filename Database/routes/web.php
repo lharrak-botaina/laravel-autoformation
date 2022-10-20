@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,5 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/users', [UserController::class,'index']);
 
+
+
+Route::controller(UserController::class)->group(function(){
+    Route::get('/singleRow', 'singleRow');
+    Route::get('/select', 'select');
+    Route::get('/list','list');
+    Route::get('/users','index');
+
+
+});
+
+Route::get('/show',[EmployeeController::class,'show']);
+   
