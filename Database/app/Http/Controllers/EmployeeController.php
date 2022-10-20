@@ -10,5 +10,6 @@ class EmployeeController extends Controller
     public function show(){
         return DB::table('employees')
         ->join('company','employees.id',"=",'company.employee_id')->get();
+        
     }
 }
