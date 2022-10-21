@@ -15,7 +15,13 @@
                 <p class="opacity-70 ml-8">
                     <strong>updated:</strong>{{$note->updated_at->diffForHumans()}}
                 </p>
-
+                <a href="{{ route('notes.edit',$note) }}" class="btn-link ml-auto">Edit Note</a>
+                <form action="{{ route('notes.destroy',$note) }}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger ml-4" onclick="return confirm('are you sure you want to delete this form?')">delete</button>
+                </form>
+               
             </div>
 
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">

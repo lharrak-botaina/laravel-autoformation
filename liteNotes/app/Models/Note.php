@@ -10,4 +10,8 @@ class Note extends Model
     use HasFactory;
     //this means we are allowing all the fields to be mass assigned
     protected $guarded=[];
+     public function getRouteKeyName()
+     {
+       return 'uuid';
+     }
 }
