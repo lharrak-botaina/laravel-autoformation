@@ -20,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('has-one',[RelationsController::class,'hasOneRelation']);
+Route::get('hospital-has-many',[RelationsController::class,'getHospitalDoctors']);
+
